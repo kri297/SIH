@@ -1,0 +1,451 @@
+/* responsive.css - Responsive Design for Jharkhand Eco-Culture Explorer */
+
+/* Large Desktop Screens (1200px and above) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .quick-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Desktop Screens (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .quick-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .rewards-dashboard {
+        grid-template-columns: 1fr 1.5fr;
+    }
+}
+
+/* Tablet Screens (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+    
+    /* Navigation */
+    .nav-container {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .nav-menu {
+        gap: var(--spacing-lg);
+    }
+    
+    .nav-brand {
+        font-size: var(--font-size-lg);
+    }
+    
+    /* Hero Section */
+    .hero-title {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .hero-actions {
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .hero-stats {
+        gap: var(--spacing-xl);
+    }
+    
+    /* Cards and Grids */
+    .quick-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    .rewards-dashboard {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .badges-grid {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: var(--spacing-sm);
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    /* Map Section */
+    .map-placeholder {
+        height: 400px;
+    }
+    
+    .map-controls {
+        padding: var(--spacing-md);
+    }
+    
+    /* Sections */
+    .section-title {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-xl);
+    }
+}
+
+/* Mobile Landscape (568px to 767px) */
+@media (min-width: 568px) and (max-width: 767px) {
+    /* Navigation - Mobile Menu */
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--primary-green);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: var(--spacing-2xl);
+        transition: left var(--transition-normal);
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-md) 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-actions {
+        gap: var(--spacing-sm);
+    }
+    
+    .user-points {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        height: 80vh;
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero-actions .btn {
+        width: 200px;
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: var(--spacing-lg);
+    }
+    
+    .stat-item h3 {
+        font-size: var(--font-size-xl);
+    }
+    
+    /* Cards */
+    .quick-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .quick-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .quick-card i {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .feature-card {
+        padding: var(--spacing-xl);
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .feature-icon i {
+        font-size: var(--font-size-xl);
+    }
+    
+    /* Rewards */
+    .rewards-dashboard {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .reward-stat {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .badges-grid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    }
+    
+    /* Map */
+    .map-placeholder {
+        height: 300px;
+    }
+    
+    .map-controls {
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+    
+    .map-btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Mobile Portrait (up to 567px) */
+@media (max-width: 567px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Typography */
+    .section-title {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Navigation */
+    .nav-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .nav-brand {
+        font-size: var(--font-size-base);
+    }
+    
+    .nav-brand i {
+        font-size: var(--font-size-lg);
+    }
+    
+    .nav-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+        padding-top: var(--spacing-xl);
+    }
+    
+    .nav-link {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .lang-switcher {
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-xs);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        height: 70vh;
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .hero-content {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--spacing-md);
+        line-height: 1.5;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .hero-actions .btn {
+        width: 180px;
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-xs) var(--spacing-md);
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        align-items: center;
+    }
+    
+    .stat-item h3 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .stat-item p {
+        font-size: var(--font-size-xs);
+    }
+    
+    /* Cards */
+    .quick-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .quick-card {
+        padding: var(--spacing-md);
+    }
+    
+    .quick-card i {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .quick-card h3 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .quick-card p {
+        font-size: var(--font-size-xs);
+    }
+    
+    /* Features */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .feature-card {
+        padding: var(--spacing-lg);
+        text-align: left;
+    }
+    
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto var(--spacing-sm);
+    }
+    
+    .feature-icon i {
+        font-size: var(--font-size-base);
+    }
+    
+    .feature-card h3 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .feature-card p {
+        font-size: var(--font-size-xs);
+        line-height: 1.4;
+    }
+    
+    /* Rewards */
+    .rewards-summary {
+        padding: var(--spacing-lg);
+    }
+    
+    .reward-stat {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .reward-stat i {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .reward-stat h3 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .badges-showcase {
+        padding: var(--spacing-lg);
+    }
+    
+    .badges-grid {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        gap: var(--spacing-xs);
+    }
+    
+    .badge-item {
+        padding: var(--spacing-xs);
+    }
+    
+    .badge-icon {
+        font-size: var(--font-size-lg);
+    }
+}

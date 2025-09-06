@@ -1,0 +1,387 @@
+/* loading.css - Loading Screen Styles for Jharkhand Eco-Culture Explorer */
+
+/* Loading Screen Container */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0F4C3A 0%, #1B5E20 25%, #2D8659 50%, #388E3C 75%, #4CAF50 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Loading Animation Container */
+.loading-animation {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+/* Mountain Icon */
+.mountain-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: #E8F5E8;
+    animation: mountainPulse 2s infinite ease-in-out;
+}
+
+/* Tribal Elements Animation */
+.tribal-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.element {
+    position: absolute;
+    font-size: 24px;
+    animation: floatAround 4s infinite ease-in-out;
+}
+
+.element-1 {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.element-2 {
+    top: 20%;
+    right: 20%;
+    animation-delay: 1s;
+}
+
+.element-3 {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.element-4 {
+    bottom: 20%;
+    right: 20%;
+    animation-delay: 3s;
+}
+
+/* Loading Text Styles */
+.loading-text {
+    text-align: center;
+    color: #E8F5E8;
+    margin-bottom: 40px;
+}
+
+.loading-text h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #E8F5E8, #FFB74D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textShimmer 3s infinite;
+}
+
+.loading-text p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #A5D6A7;
+    animation: fadeInOut 2s infinite alternate;
+}
+
+.loading-text small {
+    font-size: 12px;
+    color: #81C784;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Progress Container */
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 300px;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A, #FFB74D, #FF7043);
+    background-size: 200% 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    animation: progressGlow 2s infinite;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: progressShine 2s infinite;
+}
+
+/* Loading Percentage */
+.loading-percentage {
+    color: #E8F5E8;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    animation: numberGlow 2s infinite alternate;
+}
+
+/* Keyframe Animations */
+@keyframes mountainPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        filter: drop-shadow(0 0 10px rgba(232, 245, 232, 0.3));
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        filter: drop-shadow(0 0 20px rgba(232, 245, 232, 0.6));
+    }
+}
+
+@keyframes floatAround {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translateY(-10px) rotate(90deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-15px) rotate(180deg);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translateY(-10px) rotate(270deg);
+        opacity: 1;
+    }
+}
+
+@keyframes textShimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes progressGlow {
+    0%, 100% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    }
+    50% {
+        background-position: 100% 50%;
+        box-shadow: 0 0 20px rgba(255, 112, 67, 0.7);
+    }
+}
+
+@keyframes progressShine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes numberGlow {
+    0% {
+        text-shadow: 0 0 5px rgba(232, 245, 232, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(232, 245, 232, 0.8), 0 0 25px rgba(165, 214, 167, 0.6);
+    }
+}
+
+/* Loading Messages Animation */
+.loading-messages {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    text-align: center;
+}
+
+.loading-message {
+    color: #A5D6A7;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    animation: messageSlide 8s infinite;
+}
+
+.loading-message:nth-child(1) { animation-delay: 0s; }
+.loading-message:nth-child(2) { animation-delay: 2s; }
+.loading-message:nth-child(3) { animation-delay: 4s; }
+.loading-message:nth-child(4) { animation-delay: 6s; }
+
+@keyframes messageSlide {
+    0%, 20% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    25%, 45% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50%, 100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Decorative Elements */
+.loading-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="tribal" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2" fill="%23ffffff" opacity="0.1"/><path d="M20,20 L30,20 L25,30 Z" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100%" height="100%" fill="url(%23tribal)"/></svg>') center/cover;
+    opacity: 0.3;
+    animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(-10px) translateY(-10px);
+    }
+    50% {
+        transform: translateX(-20px) translateY(0);
+    }
+    75% {
+        transform: translateX(-10px) translateY(10px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .loading-animation {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 30px;
+    }
+    
+    .mountain-icon {
+        font-size: 60px;
+    }
+    
+    .element {
+        font-size: 20px;
+    }
+    
+    .loading-text h2 {
+        font-size: 24px;
+    }
+    
+    .loading-text p {
+        font-size: 14px;
+    }
+    
+    .progress-container {
+        width: 250px;
+    }
+    
+    .loading-messages {
+        width: 300px;
+        bottom: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-animation {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 25px;
+    }
+    
+    .mountain-icon {
+        font-size: 50px;
+    }
+    
+    .element {
+        font-size: 18px;
+    }
+    
+    .loading-text h2 {
+        font-size: 20px;
+    }
+    
+    .loading-text p {
+        font-size: 12px;
+    }
+    
+    .progress-container {
+        width: 200px;
+    }
+    
+    .loading-percentage {
+        font-size: 16px;
+    }
+    
+    .loading-messages {
+        width: 250px;
+        bottom: 60px;
+    }
+    
+    .loading-message {
+        font-size: 12px;
+    }
+}

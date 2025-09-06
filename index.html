@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Eco-Culture Explorer | CODE FORGE</title>
+    <meta name="description" content="Smart Digital Platform for Eco & Cultural Tourism in Jharkhand">
+    <meta name="keywords" content="Jharkhand, Tourism, Eco-tourism, Cultural Heritage, Tribal Culture">
+    
+    <!-- External Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="loading.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-animation">
+            <div class="mountain-icon">
+                <i class="fas fa-mountain"></i>
+            </div>
+            <div class="tribal-elements">
+                <div class="element element-1">🌿</div>
+                <div class="element element-2">🦚</div>
+                <div class="element element-3">🏺</div>
+                <div class="element element-4">🌺</div>
+            </div>
+        </div>
+        <div class="loading-text">
+            <h2>Jharkhand Eco-Culture Explorer</h2>
+            <p>Discovering Heritage • Preserving Nature</p>
+            <small>CODE FORGE - Smart India Hackathon 2025</small>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="loading-percentage" id="loadingPercentage">0%</div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div class="main-app" id="mainApp" style="display: none;">
+        <!-- Navigation Header -->
+        <header class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <i class="fas fa-mountain"></i>
+                    <span>Jharkhand Explorer</span>
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#explore" class="nav-link">Explore</a>
+                    <a href="#culture" class="nav-link">Culture</a>
+                    <a href="#eco-trails" class="nav-link">Eco Trails</a>
+                    <a href="#rewards" class="nav-link">Rewards</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <div class="nav-actions">
+                    <div class="user-points">
+                        <i class="fas fa-coins"></i>
+                        <span id="userPoints">0</span>
+                    </div>
+                    <button class="lang-switcher" id="langSwitcher">
+                        <i class="fas fa-globe"></i> EN
+                    </button>
+                    <button class="nav-toggle" id="navToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Discover <span class="highlight">Jharkhand's</span>
+                        <br>Hidden Treasures
+                    </h1>
+                    <p class="hero-subtitle">
+                        Explore eco-friendly trails, rich tribal heritage, and breathtaking landscapes
+                        while earning rewards for responsible tourism
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" id="startExploring">
+                            <i class="fas fa-compass"></i>
+                            Start Exploring
+                        </button>
+                        <button class="btn btn-secondary" id="watchVideo">
+                            <i class="fas fa-play"></i>
+                            Watch Video
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Eco Trails</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>25+</h3>
+                        <p>Cultural Sites</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100+</h3>
+                        <p>Local Partners</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Cards -->
+        <section class="quick-access">
+            <div class="container">
+                <div class="quick-cards">
+                    <div class="quick-card" data-category="eco">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Eco Trails</h3>
+                        <p>Sustainable forest walks</p>
+                    </div>
+                    <div class="quick-card" data-category="culture">
+                        <i class="fas fa-users"></i>
+                        <h3>Tribal Heritage</h3>
+                        <p>Rich cultural experiences</p>
+                    </div>
+                    <div class="quick-card" data-category="wildlife">
+                        <i class="fas fa-paw"></i>
+                        <h3>Wildlife</h3>
+                        <p>Protected sanctuaries</p>
+                    </div>
+                    <div class="quick-card" data-category="waterfalls">
+                        <i class="fas fa-tint"></i>
+                        <h3>Waterfalls</h3>
+                        <p>Pristine natural beauty</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section id="explore" class="map-section">
+            <div class="container">
+                <h2 class="section-title">Interactive Explorer Map</h2>
+                <div class="map-container">
+                    <div id="interactiveMap" class="map-placeholder">
+                        <div class="map-loading">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Loading Interactive Map...</p>
+                        </div>
+                    </div>
+                    <div class="map-controls">
+                        <button class="map-btn active" data-filter="all">All</button>
+                        <button class="map-btn" data-filter="eco">Eco Sites</button>
+                        <button class="map-btn" data-filter="culture">Cultural</button>
+                        <button class="map-btn" data-filter="wildlife">Wildlife</button>
+                        <button class="map-btn" data-filter="waterfalls">Waterfalls</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Platform Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3>Smart Trip Planner</h3>
+                        <p>AI-powered eco-friendly travel planning with carbon footprint tracking</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Gamification Rewards</h3>
+                        <p>Earn eco-badges and heritage tokens for responsible tourism practices</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Local Homestays</h3>
+                        <p>Authentic tribal homestay experiences with certified local families</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h3>Community Guides</h3>
+                        <p>Connect with local eco-guides and tribal culture experts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Culture Section -->
+<section id="culture" class="content-section">
+  <div class="container">
+    <h2 class="section-title">Explore Jharkhand's Tribal Culture</h2>
+    <div class="horizontal-cards-wrapper">
+      <div class="info-card-grid horizontal-scroll">
+        <!-- Card 1 -->
+        <div class="info-card">
+          <img src="akhil-ramesh-fAVbdwql7Vw-unsplash.jpg" alt="Tribal Dance" class="card-img">
+          <div class="card-body">
+            <h3>Tribal Dance</h3>
+            <p>
+              Witness the energetic rhythms and vibrant costumes of Jharkhand's tribal dance forms, such as Chhau and Santhal. These dances celebrate harvest, festivals, and community spirit.
+            </p>
+            <video src="dance.mp4" controls class="card-video"></video>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="info-card">
+          <img src="asso-myron-8IVd1ZfDxG4-unsplash.jpg" alt="Tribal Art" class="card-img">
+          <div class="card-body">
+            <h3>Tribal Art</h3>
+            <p>
+              Discover beautiful tribal art, including Sohrai and Paitkar paintings, intricate crafts, and ancient scripts carved on stones and wood, reflecting Jharkhand's rich heritage.
+            </p>
+            <video src="paint.mp4" controls class="card-video"></video>
+          </div>
+        </div>
+        <div class="info-card">
+          <img src="11.jpg" alt="Tribal Festival" class="card-img">
+          <div class="card-body">
+            <h3>Tribal Festival</h3>
+            <p>
+              "Join the vibrant tribal festivals of Jharkhand, where locals gather to celebrate with traditional music, dance, and food. These festivals are a window into the state's ancient customs and joyful spirit."
+            </p>
+            <video src="fest.mp4" controls class="card-video"></video>
+          </div>
+        </div>
+        <div class="info-card">
+          <img src="55.jpg" alt="Tribal Museum" class="card-img">
+          <div class="card-body">
+            <h3>Tribal Museum</h3>
+            <p>
+              The Tribal Museum in Ranchi showcases the rich culture of Jharkhand's 32 tribes. With detailed dioramas and photographs, it beautifully illustrates their traditional lifestyles, art, and pivotal role in the state's history
+            </p>
+            <video src="1234.mp4" controls class="card-video"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Eco Trails Section -->
+<section id="eco-trails" class="content-section">
+  <div class="container">
+    <h2 class="section-title">Eco Trails & Nature Walks</h2>
+    <div class="horizontal-cards-wrapper">
+      <div class="info-card-grid horizontal-scroll">
+        <!-- Card 1 -->
+        <div class="info-card">
+          <img src="22.jpg" alt="Forest Trail" class="card-img">
+          <div class="card-body">
+            <h3>Forest Eco Trail</h3>
+            <p>
+              Trek through lush forests, listen to the sounds of nature, and spot diverse flora and fauna in Jharkhand's eco trails. Perfect for adventure seekers and nature lovers.
+            </p>
+            <video src="for.mp4" controls class="card-video"></video>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="info-card">
+          <img src="images (2).jpeg" alt="Hundru Falls" class="card-img">
+          <div class="card-body">
+            <h3>Hundru Falls</h3>
+            <p>
+              Experience the breathtaking beauty of Hundru Falls, one of Jharkhand's most famous waterfalls, surrounded by scenic landscapes ideal for hiking and photography.
+            </p>
+            <video src="h.mp4" controls class="card-video"></video>
+          </div>
+        </div>
+        <div class="info-card">
+          <img src="images (1).jpeg" alt="Sunrise at Netarhat Hills" class="card-img">
+          <div class="card-body">
+            <h3>Sunrise at Netarhat Hills</h3>
+            <p>
+              Experience a magical sunrise at Netarhat Hills, known as the 'Queen of Chotanagpur.' The rolling hills and morning mist create an unforgettable eco-adventure
+            </p>
+            <video src="n.mp4" controls class="card-video"></video>
+          </div>
+        </div>
+        <div class="info-card">
+          <img src="29.jpg" alt="Saranda Forest" class="card-img">
+          <div class="card-body">
+            <h3>Saranda Forest</h3>
+            <p>
+             Known as the "land of seven hundred hills," Saranda is the largest Sal forest in Asia, offering a peaceful haven with dense vegetation, curving roads ideal for cycling and hiking, and rich biodiversity.
+            </p>
+            <video src="la.mp4" controls class="card-video"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+        <!-- Rewards Dashboard -->
+        <section id="rewards" class="rewards-section">
+            <div class="container">
+                <h2 class="section-title">Your Eco Rewards</h2>
+                <div class="rewards-dashboard">
+                    <div class="rewards-summary">
+                        <div class="reward-stat">
+                            <i class="fas fa-leaf"></i>
+                            <div>
+                                <h3 id="ecoPoints">0</h3>
+                                <p>Eco Points</p>
+                            </div>
+                        </div>
+                        <div class="reward-stat">
+                            <i class="fas fa-medal"></i>
+                            <div>
+                                <h3 id="badgesEarned">0</h3>
+                                <p>Badges Earned</p>
+                            </div>
+                        </div>
+                        <div class="reward-stat">
+                            <i class="fas fa-tree"></i>
+                            <div>
+                                <h3 id="carbonSaved">0</h3>
+                                <p>kg CO₂ Saved</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="badges-showcase" id="badgesShowcase">
+                        <h4>Available Badges</h4>
+                        <div class="badges-grid">
+                            <!-- Badges will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>Jharkhand Explorer</h4>
+                        <p>Smart digital platform for sustainable eco and cultural tourism</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#explore">Explore</a></li>
+                            <li><a href="#culture">Culture</a></li>
+                            <li><a href="#eco-trails">Eco Trails</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#help">Help Center</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="#feedback">Feedback</a></li>
+                            <li><a href="#terms">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>CODE FORGE</h4>
+                        <p>Smart India Hackathon 2025</p>
+                        <p>Problem Statement: SIH25032</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 CODE FORGE. All rights reserved. | Smart India Hackathon Project</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script src="loading.js"></script>
+    <script src="map.js"></script>
+    <script src="rewards.js"></script>
+    <script src="language.js"></script>
+</body>
+</html>
